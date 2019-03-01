@@ -7,6 +7,7 @@ class LocationSerializer(serializers.ModelSerializer):
     # fields = "__all__"
     # can explicitly add the fields needed if not all are supposed to be included
     fields = (
+      'id',
       'street_number', 
       'locality', 
       'latitude',
