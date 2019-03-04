@@ -21,8 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'xa_!*q6w=(pax(+yrsvt-u3lcincgm1-v^4m4@a5k1m)@j-awt'
-
+SECRET_KEY = os.environ["SECRET_KEY"]
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -44,6 +43,8 @@ INSTALLED_APPS = [
     'state',
     'country',
     'rest_framework',
+    'rest_framework.authtoken',
+    'rest_auth',
 ]
 
 MIDDLEWARE = [
@@ -99,12 +100,15 @@ WSGI_APPLICATION = 'hgvf.wsgi.application'
 
 DATABASES = {
     'default': {
+        # sqlite for local development
         # 'ENGINE': 'django.db.backends.sqlite3',
         # 'NAME': os.path.join('.', 'hgvf.db'),
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'hgvf',
-        'USER': 'admin',
-        'PASSWORD': '',
+        # postgres for heroku
+        'ENGINE': os.environ["DATABASE_ENGINE"]
+        'NAME': os.environ["DATABASE_NAME"]
+        'USER': os.environ["DATABASE_USER"]
+        'PASSWORD': os.environ["DATABASE_PASSWORD"]
+        'EMAIL': os.environ["DATABASE_EMAIL"]
     }
 }
 db_from_env = dj_database_url.config(conn_max_age=500)

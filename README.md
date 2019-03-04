@@ -7,6 +7,9 @@ For local development
 Start a virtual environment:
 
 `python3 -m venv VenvDjango`
+`virtualenv venv_hgvf`
+`source venv_hgvf/bin/activate`
+`pip install -r requirements.txt`
 
 If the Django server can't find a table (but this is not your first time using this), try the following:
 
@@ -16,6 +19,10 @@ Make the migrations for the 'locations' app:
 
 `python manage.py makemigrations locations`
 
-Finally, migrate the database: 
+Next, migrate the database: 
 
 `python manage.py migrate`
+
+Finally, enjoy the fruit of your labor:
+`python manage.py runserver`
+point your browser to localhost:8000/api/attribute
