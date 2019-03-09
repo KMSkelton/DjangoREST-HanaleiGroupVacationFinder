@@ -108,7 +108,6 @@ DATABASES = {
         'NAME': os.environ["DATABASE_NAME"],
         'USER': os.environ["DATABASE_USER"],
         'PASSWORD': os.environ["DATABASE_PASSWORD"],
-        'EMAIL': os.environ["DATABASE_EMAIL"],
     }
 }
 db_from_env = dj_database_url.config(conn_max_age=500)
