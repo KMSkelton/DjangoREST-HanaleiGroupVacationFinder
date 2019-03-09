@@ -104,7 +104,8 @@ DATABASES = {
         # 'ENGINE': 'django.db.backends.sqlite3',
         # 'NAME': os.path.join('.', 'hgvf.db'),
         # postgres for heroku
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        # 'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': os.environ["DATABASE_ENGINE"],
         'NAME': os.environ["DATABASE_NAME"],
         'USER': os.environ["DATABASE_USER"],
         'PASSWORD': os.environ["DATABASE_PASSWORD"],
